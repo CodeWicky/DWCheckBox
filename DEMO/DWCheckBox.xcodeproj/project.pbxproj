@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9BB287C51E5054D70016FED8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287C41E5054D70016FED8 /* main.m */; };
+		9BB287C81E5054D70016FED8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287C71E5054D70016FED8 /* AppDelegate.m */; };
+		9BB287CB1E5054D70016FED8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287CA1E5054D70016FED8 /* ViewController.m */; };
+		9BB287CE1E5054D70016FED8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB287CC1E5054D70016FED8 /* Main.storyboard */; };
+		9BB287D01E5054D70016FED8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB287CF1E5054D70016FED8 /* Assets.xcassets */; };
+		9BB287D31E5054D70016FED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB287D11E5054D70016FED8 /* LaunchScreen.storyboard */; };
+		9BB287DC1E5055350016FED8 /* DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287DB1E5055350016FED8 /* DViewController.m */; };
+		9BB287DF1E5057D00016FED8 /* DWCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287DE1E5057D00016FED8 /* DWCheckBox.m */; };
+		9BB287E31E50B59E0016FED8 /* DWCheckBoxBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BB287E21E50B59E0016FED8 /* DWCheckBoxBundle.bundle */; };
+		9BB287E91E5207340016FED8 /* DWTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287E81E5207340016FED8 /* DWTableViewHelper.m */; };
+		9BB287EC1E5207ED0016FED8 /* VCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287EB1E5207ED0016FED8 /* VCModel.m */; };
+		9BB287EF1E520AA80016FED8 /* DefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287EE1E520AA80016FED8 /* DefaultCell.m */; };
+		9BB287F21E520B910016FED8 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287F11E520B910016FED8 /* AViewController.m */; };
+		9BB287F51E52102D0016FED8 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287F41E52102D0016FED8 /* BViewController.m */; };
+		9BB287F81E5210EA0016FED8 /* CustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287F71E5210EA0016FED8 /* CustomLayout.m */; };
+		9BB287FB1E5213500016FED8 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287FA1E5213500016FED8 /* CViewController.m */; };
+		9BB287FE1E5213D70016FED8 /* CustomCheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB287FD1E5213D70016FED8 /* CustomCheckBoxCell.m */; };
+		9BB288011E52CB8B0016FED8 /* 爱心.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB287FF1E52CB8B0016FED8 /* 爱心.png */; };
+		9BB288021E52CB8B0016FED8 /* 爱心-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BB288001E52CB8B0016FED8 /* 爱心-1.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9BB287C01E5054D70016FED8 /* DWCheckBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWCheckBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB287C41E5054D70016FED8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9BB287C61E5054D70016FED8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9BB287C71E5054D70016FED8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9BB287C91E5054D70016FED8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9BB287CA1E5054D70016FED8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9BB287CD1E5054D70016FED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9BB287CF1E5054D70016FED8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BB287D21E5054D70016FED8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9BB287D41E5054D70016FED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BB287DA1E5055350016FED8 /* DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DViewController.h; sourceTree = "<group>"; };
+		9BB287DB1E5055350016FED8 /* DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DViewController.m; sourceTree = "<group>"; };
+		9BB287DD1E5057D00016FED8 /* DWCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWCheckBox.h; sourceTree = "<group>"; };
+		9BB287DE1E5057D00016FED8 /* DWCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWCheckBox.m; sourceTree = "<group>"; };
+		9BB287E21E50B59E0016FED8 /* DWCheckBoxBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DWCheckBoxBundle.bundle; sourceTree = "<group>"; };
+		9BB287E71E5207340016FED8 /* DWTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWTableViewHelper.h; sourceTree = "<group>"; };
+		9BB287E81E5207340016FED8 /* DWTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWTableViewHelper.m; sourceTree = "<group>"; };
+		9BB287EA1E5207ED0016FED8 /* VCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCModel.h; sourceTree = "<group>"; };
+		9BB287EB1E5207ED0016FED8 /* VCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCModel.m; sourceTree = "<group>"; };
+		9BB287ED1E520AA80016FED8 /* DefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultCell.h; sourceTree = "<group>"; };
+		9BB287EE1E520AA80016FED8 /* DefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultCell.m; sourceTree = "<group>"; };
+		9BB287F01E520B910016FED8 /* AViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
+		9BB287F11E520B910016FED8 /* AViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
+		9BB287F31E52102D0016FED8 /* BViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		9BB287F41E52102D0016FED8 /* BViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
+		9BB287F61E5210EA0016FED8 /* CustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayout.h; sourceTree = "<group>"; };
+		9BB287F71E5210EA0016FED8 /* CustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayout.m; sourceTree = "<group>"; };
+		9BB287F91E5213500016FED8 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		9BB287FA1E5213500016FED8 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
+		9BB287FC1E5213D70016FED8 /* CustomCheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCheckBoxCell.h; sourceTree = "<group>"; };
+		9BB287FD1E5213D70016FED8 /* CustomCheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCheckBoxCell.m; sourceTree = "<group>"; };
+		9BB287FF1E52CB8B0016FED8 /* 爱心.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "爱心.png"; sourceTree = "<group>"; };
+		9BB288001E52CB8B0016FED8 /* 爱心-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "爱心-1.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BB287BD1E5054D70016FED8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BB287B71E5054D70016FED8 = {
+			isa = PBXGroup;
+			children = (
+				9BB287C21E5054D70016FED8 /* DWCheckBox */,
+				9BB287C11E5054D70016FED8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BB287C11E5054D70016FED8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BB287C01E5054D70016FED8 /* DWCheckBox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BB287C21E5054D70016FED8 /* DWCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				9BB287C61E5054D70016FED8 /* AppDelegate.h */,
+				9BB287C71E5054D70016FED8 /* AppDelegate.m */,
+				9BB287C91E5054D70016FED8 /* ViewController.h */,
+				9BB287CA1E5054D70016FED8 /* ViewController.m */,
+				9BB287F01E520B910016FED8 /* AViewController.h */,
+				9BB287F11E520B910016FED8 /* AViewController.m */,
+				9BB287F31E52102D0016FED8 /* BViewController.h */,
+				9BB287F41E52102D0016FED8 /* BViewController.m */,
+				9BB287F91E5213500016FED8 /* CViewController.h */,
+				9BB287FA1E5213500016FED8 /* CViewController.m */,
+				9BB287DA1E5055350016FED8 /* DViewController.h */,
+				9BB287DB1E5055350016FED8 /* DViewController.m */,
+				9BB287F61E5210EA0016FED8 /* CustomLayout.h */,
+				9BB287F71E5210EA0016FED8 /* CustomLayout.m */,
+				9BB287EA1E5207ED0016FED8 /* VCModel.h */,
+				9BB287EB1E5207ED0016FED8 /* VCModel.m */,
+				9BB287ED1E520AA80016FED8 /* DefaultCell.h */,
+				9BB287EE1E520AA80016FED8 /* DefaultCell.m */,
+				9BB287FC1E5213D70016FED8 /* CustomCheckBoxCell.h */,
+				9BB287FD1E5213D70016FED8 /* CustomCheckBoxCell.m */,
+				9BB287E71E5207340016FED8 /* DWTableViewHelper.h */,
+				9BB287E81E5207340016FED8 /* DWTableViewHelper.m */,
+				9BB287FF1E52CB8B0016FED8 /* 爱心.png */,
+				9BB288001E52CB8B0016FED8 /* 爱心-1.png */,
+				9BB288031E52DC430016FED8 /* DWCheckBoxView */,
+				9BB287CC1E5054D70016FED8 /* Main.storyboard */,
+				9BB287CF1E5054D70016FED8 /* Assets.xcassets */,
+				9BB287D11E5054D70016FED8 /* LaunchScreen.storyboard */,
+				9BB287D41E5054D70016FED8 /* Info.plist */,
+				9BB287C31E5054D70016FED8 /* Supporting Files */,
+			);
+			path = DWCheckBox;
+			sourceTree = "<group>";
+		};
+		9BB287C31E5054D70016FED8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BB287C41E5054D70016FED8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BB288031E52DC430016FED8 /* DWCheckBoxView */ = {
+			isa = PBXGroup;
+			children = (
+				9BB287DD1E5057D00016FED8 /* DWCheckBox.h */,
+				9BB287DE1E5057D00016FED8 /* DWCheckBox.m */,
+				9BB287E21E50B59E0016FED8 /* DWCheckBoxBundle.bundle */,
+			);
+			path = DWCheckBoxView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BB287BF1E5054D70016FED8 /* DWCheckBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BB287D71E5054D70016FED8 /* Build configuration list for PBXNativeTarget "DWCheckBox" */;
+			buildPhases = (
+				9BB287BC1E5054D70016FED8 /* Sources */,
+				9BB287BD1E5054D70016FED8 /* Frameworks */,
+				9BB287BE1E5054D70016FED8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWCheckBox;
+			productName = DWCheckBox;
+			productReference = 9BB287C01E5054D70016FED8 /* DWCheckBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BB287B81E5054D70016FED8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Wicky;
+				TargetAttributes = {
+					9BB287BF1E5054D70016FED8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Z26Y87B8NH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9BB287BB1E5054D70016FED8 /* Build configuration list for PBXProject "DWCheckBox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9BB287B71E5054D70016FED8;
+			productRefGroup = 9BB287C11E5054D70016FED8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9BB287BF1E5054D70016FED8 /* DWCheckBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BB287BE1E5054D70016FED8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB288011E52CB8B0016FED8 /* 爱心.png in Resources */,
+				9BB287D31E5054D70016FED8 /* LaunchScreen.storyboard in Resources */,
+				9BB287D01E5054D70016FED8 /* Assets.xcassets in Resources */,
+				9BB288021E52CB8B0016FED8 /* 爱心-1.png in Resources */,
+				9BB287CE1E5054D70016FED8 /* Main.storyboard in Resources */,
+				9BB287E31E50B59E0016FED8 /* DWCheckBoxBundle.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BB287BC1E5054D70016FED8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BB287DF1E5057D00016FED8 /* DWCheckBox.m in Sources */,
+				9BB287CB1E5054D70016FED8 /* ViewController.m in Sources */,
+				9BB287FB1E5213500016FED8 /* CViewController.m in Sources */,
+				9BB287E91E5207340016FED8 /* DWTableViewHelper.m in Sources */,
+				9BB287F51E52102D0016FED8 /* BViewController.m in Sources */,
+				9BB287FE1E5213D70016FED8 /* CustomCheckBoxCell.m in Sources */,
+				9BB287EC1E5207ED0016FED8 /* VCModel.m in Sources */,
+				9BB287C81E5054D70016FED8 /* AppDelegate.m in Sources */,
+				9BB287EF1E520AA80016FED8 /* DefaultCell.m in Sources */,
+				9BB287F81E5210EA0016FED8 /* CustomLayout.m in Sources */,
+				9BB287F21E520B910016FED8 /* AViewController.m in Sources */,
+				9BB287C51E5054D70016FED8 /* main.m in Sources */,
+				9BB287DC1E5055350016FED8 /* DViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9BB287CC1E5054D70016FED8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BB287CD1E5054D70016FED8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9BB287D11E5054D70016FED8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BB287D21E5054D70016FED8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BB287D51E5054D70016FED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9BB287D61E5054D70016FED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9BB287D81E5054D70016FED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z26Y87B8NH;
+				INFOPLIST_FILE = DWCheckBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Wicky.DWCheckBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9BB287D91E5054D70016FED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z26Y87B8NH;
+				INFOPLIST_FILE = DWCheckBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Wicky.DWCheckBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BB287BB1E5054D70016FED8 /* Build configuration list for PBXProject "DWCheckBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BB287D51E5054D70016FED8 /* Debug */,
+				9BB287D61E5054D70016FED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BB287D71E5054D70016FED8 /* Build configuration list for PBXNativeTarget "DWCheckBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BB287D81E5054D70016FED8 /* Debug */,
+				9BB287D91E5054D70016FED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BB287B81E5054D70016FED8 /* Project object */;
+}

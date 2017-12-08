@@ -20,7 +20,7 @@
  提供自定义布局接口
  提供自定义选择行为manager接口
  
- version 1.0.1
+ version 1.1.0
  提供默认Manager的APi
  
  */

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name = 'DWCheckBox'
-s.version = '1.0.3'
+s.version = '1.1.0'
 s.license = { :type => 'MIT', :file => 'LICENSE' }
 s.summary = 'Help you to create a checkBox in just one line.You can also customize it as you want.'
 s.homepage = 'https://github.com/CodeWicky/DWCheckBox'

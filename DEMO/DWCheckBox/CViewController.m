@@ -11,6 +11,8 @@
 #import "CustomCheckBoxCell.h"
 @interface CViewController ()
 
+@property (nonatomic ,strong) DWCheckBoxView * check;
+
 @end
 
 @implementation CViewController
@@ -41,7 +43,12 @@
     }];
     
     DWCheckBoxView * view = [[DWCheckBoxView alloc] initWithFrame:CGRectMake(0, 64, 414, 672) layout:layout manager:manager multiSelect:NO cells:cells];
+    self.check = view;
     [self.view addSubview:view];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%@",self.check.currentSelected);
 }
 
 - (void)didReceiveMemoryWarning {

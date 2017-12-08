@@ -10,6 +10,8 @@
 #import "DWCheckBox.h"
 @interface AViewController ()
 
+@property (nonatomic ,strong) DWCheckBoxView * check;
+
 @end
 
 @implementation AViewController
@@ -19,6 +21,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     DWCheckBoxView * view = [[DWCheckBoxView alloc] initWithFrame:CGRectMake(0, 64, 414, 672) multiSelect:YES titles:@[@"这个水果名特别长，比屏幕长，估计换行啊，因为后面还有字",@"苹果",@"奇异果",@"这个水果名也不短，所以这里应该换行了",@"香蕉",@"大鸭梨",@"还有一堆水果"] defaultSelect:nil];
     [self.view addSubview:view];
+    self.check = view;
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%@",self.check.currentSelected);
 }
 
 - (void)didReceiveMemoryWarning {

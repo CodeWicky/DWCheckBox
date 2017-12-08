@@ -19,6 +19,212 @@ _##value = value;\
 self.manager.value = value;\
 
 
+#pragma mark --- DWCheckBoxManager ---
+@interface DWCheckBoxManager ()
+
+@property (nonatomic ,strong) NSMutableArray <NSNumber *>* selectedArr;
+
+@property (nonatomic ,assign) NSUInteger lastSelected;
+
+@end
+
+@implementation DWCheckBoxManager
+
++(instancetype)defaultManagerWithCells:(NSArray <UIView<DWCheckBoxCellProtocol>*>*)cells
+                                     multiSelect:(BOOL)multiSelect
+                                   defaultSelect:(NSArray <NSNumber *>*)defaultSelect
+{
+    DWCheckBoxManager * manager = [[DWCheckBoxManager alloc] initWithCountOfBoxes:cells.count multiSelect:multiSelect defaultSelect:defaultSelect selectedChangeBlock:^(DWCheckBoxManager * mgr,id currentSelect, NSString *identifier) {
+        NSArray * arr = nil;
+        if (currentSelect) {
+            if (!mgr.multiSelect) {
+                arr = @[currentSelect];
+            }
+            else
+            {
+                arr = currentSelect;
+            }
+        }
+        [mgr handleCells:cells withArr:arr];
+    }];
+    return manager;
+}
+
+-(instancetype)initWithCountOfBoxes:(NSUInteger)countOfBoxes multiSelect:(BOOL)multiSelect defaultSelect:(NSArray <NSNumber *>*)defaultSelect selectedChangeBlock:(void (^)(DWCheckBoxManager *,id,NSString *))selechtChangeBlock
+{
+    self = [super init];
+    if (self) {
+        _countOfBoxes = countOfBoxes;
+        _multiSelect = multiSelect;
+        if (defaultSelect.count) {
+            [defaultSelect enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self selectAtIndex:obj.unsignedIntegerValue];
+            }];
+        }
+        if (selechtChangeBlock) {
+            self.selectedChangeBlock = selechtChangeBlock;
+        }
+    }
+    return self;
+}
+
+-(void)selectAtIndex:(NSUInteger)idx
+{
+    if (idx < self.countOfBoxes) {
+        if (self.multiSelect) {///多选操作
+            if ((![self.selectedArr containsObject:@(idx)]) && (self.selectedArr.count < self.countOfBoxes)) {
+                [self.selectedArr addObject:@(idx)];
+                __Select__Block__
+            }
+        } else {///单选操作
+            if (self.selectedArr.count) {
+                [self.selectedArr removeAllObjects];
+            }
+            [self.selectedArr addObject:@(idx)];
+            __Select__Block__
+        }
+    }
+}
+
+-(void)deselectAtIndex:(NSUInteger)idx
+{
+    if (idx < self.countOfBoxes) {
+        if ([self.selectedArr containsObject:@(idx)]) {
+            [self.selectedArr removeObject:@(idx)];
+            __Select__Block__
+        }
+    }
+}
+
+-(void)deselectAll
+{
+    [self.selectedArr removeAllObjects];
+    __Select__Block__
+}
+
+-(void)selectAll
+{
+    if (self.multiSelect) {
+        if (self.selectedArr.count != self.countOfBoxes) {
+            [self.selectedArr removeAllObjects];
+            for (int i = 0; i < self.countOfBoxes; i++) {
+                [self.selectedArr addObject:@(i)];
+            }
+            __Select__Block__
+        }
+        
+    } else {
+        if (!self.selectedArr.count) {
+            [self.selectedArr addObject:@(1)];
+            __Select__Block__
+        }
+    }
+}
+
+-(id)currentSelected
+{
+    if (self.multiSelect) {
+        return [self.selectedArr sortedArrayUsingSelector:@selector(compare:)];
+    } else {
+        if (self.selectedArr.count) {
+            return self.selectedArr.firstObject;
+        }
+        return nil;
+    }
+}
+
+#pragma mark --- tool method ---
+-(void)handleCellsWithAction:(NSArray <UIView<DWCheckBoxCellProtocol>*>*)cells
+{
+    [cells enumerateObjectsUsingBlock:^(UIView<DWCheckBoxCellProtocol> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.selectedBlock = ^(BOOL isSelect,UIView<DWCheckBoxCellProtocol> * view){
+            NSUInteger idx = [cells indexOfObject:view];
+            if (isSelect) {
+                [self deselectAtIndex:idx];
+            }
+            else
+            {
+                [self selectAtIndex:idx];
+            }
+        };
+    }];
+}
+
+-(void)handleCells:(NSArray<UIView<DWCheckBoxCellProtocol>*> *)cells
+           withArr:(NSArray *)arr
+{
+    [cells enumerateObjectsUsingBlock:^(UIView<DWCheckBoxCellProtocol> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([arr containsObject:@(idx)]) {
+            [obj cellBeSelected:YES withImage:self.selectedImage];
+        }
+        else
+        {
+            [obj cellBeSelected:NO withImage:self.unSelectedImage];
+        }
+    }];
+}
+
+
+#pragma mark --- setter/getter ---
+-(void)setMultiSelect:(BOOL)multiSelect
+{
+    _multiSelect = multiSelect;
+    if (!multiSelect && self.selectedArr.count > 1) {
+        NSNumber * lastSelected = self.selectedArr.lastObject;
+        [self.selectedArr removeAllObjects];
+        [self.selectedArr addObject:lastSelected];
+    }
+    __Select__Block__
+}
+
+-(void)setCountOfBoxes:(NSUInteger)countOfBoxes
+{
+    _countOfBoxes = countOfBoxes;
+    if (countOfBoxes < self.selectedArr.count) {
+        NSMutableArray * arr = [NSMutableArray array];
+        for (int i = 0; i < countOfBoxes; i++) {
+            [arr addObject:self.selectedArr[i]];
+        }
+        self.selectedArr = arr;
+        __Select__Block__
+    }
+}
+
+-(NSMutableArray<NSNumber *> *)selectedArr
+{
+    if (!_selectedArr) {
+        _selectedArr = [NSMutableArray array];
+    }
+    return _selectedArr;
+}
+
+-(NSString *)identifier
+{
+    if (!_identifier) {
+        return @"defaultCheckBox";
+    }
+    return _identifier;
+}
+
+-(UIImage *)selectedImage
+{
+    if (!_selectedImage) {
+        return [UIImage imageNamed:[NSString stringWithFormat:@"DWCheckBoxBundle.bundle/%@",self.multiSelect?@"checkBoxSelected":@"radioSelected"]];
+    }
+    return _selectedImage;
+}
+
+-(UIImage *)unSelectedImage
+{
+    if (!_unSelectedImage) {
+        return [UIImage imageNamed:[NSString stringWithFormat:@"DWCheckBoxBundle.bundle/%@",self.multiSelect?@"checkBoxUnselected":@"radioUnselected"]];
+    }
+    return _unSelectedImage;
+}
+
+@end
+
+
 #pragma mark --- DWCheckBoxView ---
 @interface DWCheckBoxView ()
 
@@ -55,14 +261,14 @@ self.manager.value = value;\
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initValueWithMultiSelect:multiSelect cells:cells manager:[self getDefaultManagerWithCells:cells multiSelect:multiSelect defaultSelect:defaultSelect] layout:[DWCheckBoxDefaultLayout new]];
+        [self initValueWithMultiSelect:multiSelect cells:cells manager:[DWCheckBoxManager defaultManagerWithCells:cells multiSelect:multiSelect defaultSelect:defaultSelect] layout:[DWCheckBoxDefaultLayout new]];
     }
     return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame layout:(DWCheckBoxLayout *)layout multiSelect:(BOOL)multiSelect cells:(NSArray<UIView<DWCheckBoxCellProtocol> *> *)cells defaultSelect:(NSArray<NSNumber *> *)defaultSelect
 {
-    return [self initWithFrame:frame layout:layout manager:[self getDefaultManagerWithCells:cells multiSelect:multiSelect defaultSelect:defaultSelect] multiSelect:multiSelect cells:cells];
+    return [self initWithFrame:frame layout:layout manager:[DWCheckBoxManager defaultManagerWithCells:cells multiSelect:multiSelect defaultSelect:defaultSelect] multiSelect:multiSelect cells:cells];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame multiSelect:(BOOL)multiSelect titles:(NSArray<NSString *> *)titles defaultSelect:(NSArray<NSNumber *> *)defaultSelect
@@ -97,27 +303,6 @@ self.manager.value = value;\
 }
 
 #pragma mark --- Tool Method ---
--(DWCheckBoxManager *)getDefaultManagerWithCells:(NSArray <UIView<DWCheckBoxCellProtocol>*>*)cells
-                                     multiSelect:(BOOL)multiSelect
-                                   defaultSelect:(NSArray <NSNumber *>*)defaultSelect
-{
-    __weak typeof(self)weakSelf = self;
-    DWCheckBoxManager * manager = [[DWCheckBoxManager alloc] initWithCountOfBoxes:cells.count multiSelect:multiSelect defaultSelect:defaultSelect selectedChangeBlock:^(DWCheckBoxManager * mgr,id currentSelect, NSString *identifier) {
-        NSArray * arr = nil;
-        if (currentSelect) {
-            if (!weakSelf.multiSelect) {
-                arr = @[currentSelect];
-            }
-            else
-            {
-                arr = currentSelect;
-            }
-        }
-        [self handleCells:cells withArr:arr manager:mgr];
-    }];
-    return manager;
-}
-
 -(void)initValueWithMultiSelect:(BOOL)multiSelect
                           cells:(NSArray <UIView<DWCheckBoxCellProtocol>*>*)cells
                         manager:(DWCheckBoxManager *)manager
@@ -128,7 +313,7 @@ self.manager.value = value;\
     _countOfBoxes = cells.count;
     _multiSelect = multiSelect;
     _cells = cells;
-    [self handleCellsWithAction];
+    [_manager handleCellsWithAction:_cells];
 }
 
 -(void)layoutSubviews
@@ -137,39 +322,7 @@ self.manager.value = value;\
     [self.layout layoutCheckBoxView:self cells:self.cells];
     NSArray * arr = nil;
     arr = (!self.manager.currentSelected)?nil:_multiSelect?self.manager.currentSelected:@[self.manager.currentSelected];
-    [self handleCells:self.cells withArr:arr manager:self.manager];
-}
-
--(void)handleCells:(NSArray<UIView<DWCheckBoxCellProtocol>*> *)cells
-           withArr:(NSArray *)arr
-           manager:(DWCheckBoxManager *)mgr
-{
-    [cells enumerateObjectsUsingBlock:^(UIView<DWCheckBoxCellProtocol> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([arr containsObject:@(idx)]) {
-            [obj cellBeSelected:YES withImage:mgr.selectedImage];
-        }
-        else
-        {
-            [obj cellBeSelected:NO withImage:mgr.unSelectedImage];
-        }
-    }];
-}
-
--(void)handleCellsWithAction
-{
-    __weak typeof(self)weakSelf = self;
-    [self.cells enumerateObjectsUsingBlock:^(UIView<DWCheckBoxCellProtocol> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        obj.selectedBlock = ^(BOOL isSelect,UIView<DWCheckBoxCellProtocol> * view){
-            NSUInteger idx = [weakSelf.cells indexOfObject:view];
-            if (isSelect) {
-                [weakSelf.manager deselectAtIndex:idx];
-            }
-            else
-            {
-                [weakSelf.manager selectAtIndex:idx];
-            }
-        };
-    }];
+    [self.manager handleCells:self.cells withArr:arr];
 }
 
 #pragma mark --- setter/getter ---
@@ -350,158 +503,4 @@ self.manager.value = value;\
     frame.size = size;
     self.frame = frame;
 }
-@end
-
-
-
-#pragma mark --- DWCheckBoxManager ---
-@interface DWCheckBoxManager ()
-
-@property (nonatomic ,strong) NSMutableArray <NSNumber *>* selectedArr;
-
-@property (nonatomic ,assign) NSUInteger lastSelected;
-
-@end
-
-@implementation DWCheckBoxManager
-
--(instancetype)initWithCountOfBoxes:(NSUInteger)countOfBoxes multiSelect:(BOOL)multiSelect defaultSelect:(NSArray <NSNumber *>*)defaultSelect selectedChangeBlock:(void (^)(DWCheckBoxManager *,id,NSString *))selechtChangeBlock
-{
-    self = [super init];
-    if (self) {
-        _countOfBoxes = countOfBoxes;
-        _multiSelect = multiSelect;
-        if (defaultSelect.count) {
-            [defaultSelect enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [self selectAtIndex:obj.unsignedIntegerValue];
-            }];
-        }
-        if (selechtChangeBlock) {
-            self.selectedChangeBlock = selechtChangeBlock;
-        }
-    }
-    return self;
-}
-
--(void)selectAtIndex:(NSUInteger)idx
-{
-    if (idx < self.countOfBoxes) {
-        if (self.multiSelect) {///多选操作
-            if ((![self.selectedArr containsObject:@(idx)]) && (self.selectedArr.count < self.countOfBoxes)) {
-                [self.selectedArr addObject:@(idx)];
-                __Select__Block__
-            }
-        } else {///单选操作
-            if (self.selectedArr.count) {
-                [self.selectedArr removeAllObjects];
-            }
-            [self.selectedArr addObject:@(idx)];
-            __Select__Block__
-        }
-    }
-}
-
--(void)deselectAtIndex:(NSUInteger)idx
-{
-    if (idx < self.countOfBoxes) {
-        if ([self.selectedArr containsObject:@(idx)]) {
-            [self.selectedArr removeObject:@(idx)];
-            __Select__Block__
-        }
-    }
-}
-
--(void)deselectAll
-{
-    [self.selectedArr removeAllObjects];
-    __Select__Block__
-}
-
--(void)selectAll
-{
-    if (self.multiSelect) {
-        if (self.selectedArr.count != self.countOfBoxes) {
-            [self.selectedArr removeAllObjects];
-            for (int i = 0; i < self.countOfBoxes; i++) {
-                [self.selectedArr addObject:@(i)];
-            }
-            __Select__Block__
-        }
-        
-    } else {
-        if (!self.selectedArr.count) {
-            [self.selectedArr addObject:@(1)];
-            __Select__Block__
-        }
-    }
-}
-
--(id)currentSelected
-{
-    if (self.multiSelect) {
-        return [self.selectedArr sortedArrayUsingSelector:@selector(compare:)];
-    } else {
-        if (self.selectedArr.count) {
-            return self.selectedArr.firstObject;
-        }
-        return nil;
-    }
-}
-
--(NSMutableArray<NSNumber *> *)selectedArr
-{
-    if (!_selectedArr) {
-        _selectedArr = [NSMutableArray array];
-    }
-    return _selectedArr;
-}
-
--(void)setMultiSelect:(BOOL)multiSelect
-{
-    _multiSelect = multiSelect;
-    if (!multiSelect && self.selectedArr.count > 1) {
-        NSNumber * lastSelected = self.selectedArr.lastObject;
-        [self.selectedArr removeAllObjects];
-        [self.selectedArr addObject:lastSelected];
-    }
-    __Select__Block__
-}
-
--(void)setCountOfBoxes:(NSUInteger)countOfBoxes
-{
-    _countOfBoxes = countOfBoxes;
-    if (countOfBoxes < self.selectedArr.count) {
-        NSMutableArray * arr = [NSMutableArray array];
-        for (int i = 0; i < countOfBoxes; i++) {
-            [arr addObject:self.selectedArr[i]];
-        }
-        self.selectedArr = arr;
-        __Select__Block__
-    }
-}
-
--(NSString *)identifier
-{
-    if (!_identifier) {
-        return @"defaultCheckBox";
-    }
-    return _identifier;
-}
-
--(UIImage *)selectedImage
-{
-    if (!_selectedImage) {
-        return [UIImage imageNamed:[NSString stringWithFormat:@"DWCheckBoxBundle.bundle/%@",self.multiSelect?@"checkBoxSelected":@"radioSelected"]];
-    }
-    return _selectedImage;
-}
-
--(UIImage *)unSelectedImage
-{
-    if (!_unSelectedImage) {
-        return [UIImage imageNamed:[NSString stringWithFormat:@"DWCheckBoxBundle.bundle/%@",self.multiSelect?@"checkBoxUnselected":@"radioUnselected"]];
-    }
-    return _unSelectedImage;
-}
-
 @end

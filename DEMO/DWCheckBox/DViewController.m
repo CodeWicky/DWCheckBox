@@ -65,6 +65,10 @@
     [self handleCellWithCurrentSelect:self.mgr.currentSelected];
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%@",self.mgr.currentSelected);
+}
+
 -(UIView *)footerView
 {
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 414, 600)];
@@ -114,11 +118,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    
 }
 
 /*
